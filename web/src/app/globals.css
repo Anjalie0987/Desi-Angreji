@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+  --color-muted: #6b7280;
+  
+  --color-brand: #7e22ce;
+  --color-brand-hover: #6b21a8;
+  
+  --color-yellow: #facc15;
+  --color-cyan: #06b6d4;
+  --color-cyan-hover: #0891b2;
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
+  --font-hindi: var(--font-noto-sans-devanagari);
+
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
