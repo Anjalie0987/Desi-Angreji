@@ -159,7 +159,7 @@ export default async function StoryPage(props: PageProps) {
               )}
 
               {/* Portable Text */}
-              <RichText content={article.content as any[]} className="prose-lg" />
+              <RichText content={article.content as unknown[]} className="prose-lg" />
               
               {/* Comments */}
               <CommentsPlaceholder />

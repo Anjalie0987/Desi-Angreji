@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { Container, Section } from "@/components/layout/container"
-import { H1, H2 } from "@/components/ui/typography"
+import { H1 } from "@/components/ui/typography"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -80,7 +80,7 @@ export default function CookiePolicyPage() {
 
             <h2 id="managing">Managing Cookies</h2>
             <p>
-              If you'd like to delete cookies or instruct your web browser to delete or refuse cookies, please visit the help pages 
+              If you&apos;d like to delete cookies or instruct your web browser to delete or refuse cookies, please visit the help pages 
               of your web browser. Please note, however, that if you delete cookies or refuse to accept them, you might not be able 
               to use all of the features we offer, you may not be able to store your preferences, and some of our pages might not 
               display properly.

@@ -1,6 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
-import { Globe, Mail, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { Globe, Mail } from "lucide-react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { getNavigation, getSiteSettings } from "@/lib/sanity";
 import { Button } from "../ui/button";
@@ -26,7 +27,7 @@ export async function Footer() {
   
   // Merge links, prioritizing static links if they aren't already managed in Sanity
   const quickLinks = sanityQuickLinks.length > 0 
-    ? [...sanityQuickLinks, ...staticQuickLinks.filter(s => !sanityQuickLinks.some((q: any) => q.link === s.link))]
+    ? [...sanityQuickLinks, ...staticQuickLinks.filter(s => !sanityQuickLinks.some((q: { link?: string }) => q.link === s.link))]
     : staticQuickLinks;
 
   const socialLinks = settings?.socialLinks || [];
@@ -42,10 +43,11 @@ export async function Footer() {
             <Link href="/" className="inline-block">
               {settings?.logo ? (
                 <div className="relative h-12 w-40 mb-2">
-                  <img 
+                  <Image 
                     src={settings.logo} 
                     alt={settings.siteName || "Desi Angrezi"} 
-                    className="object-contain object-left w-full h-full"
+                    fill
+                    className="object-contain object-left"
                   />
                 </div>
               ) : (
@@ -89,9 +91,9 @@ export async function Footer() {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-6">Categories</h4>
             <ul className="space-y-3">
-              {categories.slice(0, 6).map((cat: any, idx) => {
-                const slug = cat.slug || cat.link;
-                const name = cat.name || cat.title;
+              {categories.slice(0, 6).map((cat: { slug?: string; link?: string; name?: string; title?: string; _id?: string }, idx: number) => {
+                const slug = cat.slug || cat.link || "";
+                const name = cat.name || cat.title || "";
                 const href = slug.startsWith('http') ? slug : (slug === 'home' || slug === '/' ? '/' : `/${slug.replace(/^\//, '')}`);
                 return (
                   <li key={cat._id || idx}>

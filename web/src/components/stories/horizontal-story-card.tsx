@@ -42,7 +42,7 @@ export function HorizontalStoryCard({ article, className }: StoryProps) {
               {article.category.name}
             </span>
           )}
-          {article.editorsPick && <Badge variant="cyan" className="scale-75 origin-left">Editor's Pick</Badge>}
+          {article.editorsPick && <Badge variant="cyan" className="scale-75 origin-left">Editor&apos;s Pick</Badge>}
         </div>
         
         <h3 className="line-clamp-2 text-xl font-bold font-heading leading-tight group-hover:text-brand transition-colors">

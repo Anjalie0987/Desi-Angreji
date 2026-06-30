@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Search, X, Clock, TrendingUp } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+import { Search, X, Clock } from "lucide-react";
 import { Button } from "../ui/button";
 
 interface SearchOverlayProps {
@@ -13,6 +13,15 @@ interface SearchOverlayProps {
 export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   const [query, setQuery] = React.useState("");
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (query.trim()) {
+      onClose();
+      router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+    }
+  };
 
   React.useEffect(() => {
     if (isOpen) {
@@ -33,7 +42,7 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
       <div className="flex items-center justify-between border-b px-4 py-4 sm:px-6 lg:px-8">
         <form 
           className="flex flex-1 items-center gap-2" 
-          onSubmit={(e) => { e.preventDefault(); /* Handle search logic later */ }}
+          onSubmit={handleSearch}
         >
           <Search className="h-5 w-5 text-muted" />
           <input

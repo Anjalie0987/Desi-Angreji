@@ -9,6 +9,7 @@ import { AdvertisementBanner } from "@/components/ads";
 import { getTopBannerAd } from "@/lib/ads";
 import { AnalyticsProvider } from "@/components/providers/analytics-provider";
 import { AdSenseProvider } from "@/components/providers/adsense-provider";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const inter = Inter({
@@ -120,6 +121,7 @@ export default async function RootLayout({
         
         <AnalyticsProvider />
         <AdSenseProvider />
+        <Toaster richColors position="top-center" />
       </body>
     </html>
   );

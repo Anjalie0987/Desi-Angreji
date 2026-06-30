@@ -6,7 +6,7 @@ import {
   getTrendingArticles,
   getLatestArticles
 } from './article.service';
-import type { ArticleCard, ArticleDetail } from '../types/article';
+import type { ArticleCard } from '../types/article';
 
 export const getStoryBySlug = getArticleBySlug;
 export const getRelatedStories = getRelatedArticles;

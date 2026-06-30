@@ -121,7 +121,7 @@ const components: PortableTextComponents = {
         <div className="my-8 overflow-x-auto">
           <table className="w-full border-collapse border border-gray-200 text-left text-sm">
             <tbody>
-              {value.rows.map((row: any, rIdx: number) => (
+              {value.rows.map((row: { _key?: string; cells?: string[] }, rIdx: number) => (
                 <tr key={row._key || rIdx} className="border-b border-gray-200 hover:bg-gray-50">
                   {row.cells?.map((cell: string, cIdx: number) => {
                     const isHeader = rIdx === 0;
@@ -149,7 +149,7 @@ const components: PortableTextComponents = {
 };
 
 interface RichTextProps {
-  content: any[];
+  content: unknown[];
   className?: string;
 }
 

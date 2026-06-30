@@ -5,8 +5,10 @@ import { Button } from "../ui/button";
 import { Section, Container } from "../layout/container";
 import { Loader2 } from "lucide-react";
 
-export function LoadMoreSection() {
+export function LoadMoreSection({ show = true }: { show?: boolean }) {
   const [isLoading, setIsLoading] = React.useState(false);
+
+  if (!show) return null;
 
   const handleLoadMore = () => {
     setIsLoading(true);
@@ -33,7 +35,7 @@ export function LoadMoreSection() {
               Loading...
             </>
           ) : (
-            "Continue Reading"
+            "Load More Stories"
           )}
         </Button>
       </Container>

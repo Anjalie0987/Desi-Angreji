@@ -81,7 +81,7 @@ export default function AboutPage() {
         <Container className="text-center max-w-2xl mx-auto">
           <H2 className="mb-6">Join Our Journey</H2>
           <p className="text-lg text-gray-600 mb-8">
-            Whether you're a reader looking for the latest insights or a writer wanting to share your perspective, there's a place for you here.
+            Whether you&apos;re a reader looking for the latest insights or a writer wanting to share your perspective, there&apos;s a place for you here.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild size="lg">

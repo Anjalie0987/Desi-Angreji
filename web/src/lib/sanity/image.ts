@@ -1,7 +1,7 @@
-import imageUrlBuilder from '@sanity/image-url';
+import { createImageUrlBuilder } from '@sanity/image-url';
 import { client } from './client';
 
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 
 /**
  * Helper to generate optimized Sanity Image URLs.
@@ -10,7 +10,7 @@ const builder = imageUrlBuilder(client);
  * @param source - The image object from Sanity
  * @returns The imageUrlBuilder instance for further configuration
  */
-export const urlForImage = (source: any) => {
+export const urlForImage = (source: Parameters<typeof builder.image>[0]) => {
   return builder.image(source);
 };
 

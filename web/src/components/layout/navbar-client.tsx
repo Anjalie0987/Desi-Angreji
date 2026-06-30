@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import type { Navigation, SiteSettings } from "@/lib/sanity";

@@ -31,9 +31,9 @@ export async function sanityFetch<QueryResponse>({
   const isDev = process.env.NODE_ENV === 'development' || isDraftMode;
   const finalRevalidate = isDev ? 0 : (revalidate !== undefined ? revalidate : 3600);
 
-  const fetchOptions: any = isDev 
-    ? { cache: 'no-store' } 
-    : { next: { tags, revalidate: finalRevalidate } };
+  if (isDev) {
+    return client.fetch<QueryResponse>(query, params, { cache: 'no-store' });
+  }
 
-  return client.fetch<QueryResponse>(query, params, fetchOptions);
+  return client.fetch<QueryResponse>(query, params, { next: { tags, revalidate: finalRevalidate } });
 }

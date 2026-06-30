@@ -19,8 +19,6 @@ export function ArticleShare({ url, title, socialData }: ArticleShareProps) {
   const twLink = generateShareLink('twitter', url, socialData?.xCaption || title);
   const waLink = generateShareLink('whatsapp', url, socialData?.whatsappCaption || title);
   const inLink = generateShareLink('linkedin', url, socialData?.linkedinCaption || title);
-  // Telegram doesn't have a specific generator in our utils, let's use a standard one
-  const tgLink = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
 
   const copyToClipboard = async (text: string, type: 'link' | 'caption') => {
     try {
@@ -32,8 +30,8 @@ export function ArticleShare({ url, title, socialData }: ArticleShareProps) {
         setCopiedCaption(true);
         setTimeout(() => setCopiedCaption(false), 2000);
       }
-    } catch (err) {
-      console.error('Failed to copy', err);
+    } catch {
+      console.error('Failed to copy');
     }
   };
 
@@ -84,7 +82,7 @@ export function ArticleShare({ url, title, socialData }: ArticleShareProps) {
                     text: socialData?.xCaption || title,
                     url: url,
                   });
-                } catch (err) {
+                } catch {
                   // Usually user cancelled
                 }
               } else {

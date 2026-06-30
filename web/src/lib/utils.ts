@@ -19,7 +19,7 @@ export function formatDate(dateString?: string, formatStr: string = 'MMM dd, yyy
   try {
     const date = parseISO(dateString);
     return format(date, formatStr);
-  } catch (error) {
+  } catch {
     return dateString; // fallback
   }
 }

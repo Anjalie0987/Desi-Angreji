@@ -14,7 +14,7 @@ export function BreakingNewsTicker({ articles, className }: BreakingNewsTickerPr
   return (
     <div className={cn("flex items-center gap-4 bg-gray-50 border-y py-2 px-4 sm:px-6 lg:px-8", className)}>
       <Badge variant="breaking" className="shrink-0 uppercase rounded-sm px-3 shadow-sm">
-        Breaking
+        Latest
       </Badge>
       
       <div className="relative flex flex-1 overflow-hidden">

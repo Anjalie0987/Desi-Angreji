@@ -9,7 +9,6 @@ import { H2, P } from "../ui/typography";
 
 export function HeroStoryCard({ article, className }: StoryProps) {
   const readingTime = article.estimatedReadingTime || calculateReadingTime(article.excerpt || "");
-  const fallbackImage = "/placeholder-hero.jpg"; // Use a real placeholder in production
 
   return (
     <article 
@@ -41,7 +40,7 @@ export function HeroStoryCard({ article, className }: StoryProps) {
         {/* Badges overlay */}
         <div className="absolute left-4 top-4 z-20 flex flex-wrap gap-2">
           {article.breakingNews && <Badge variant="breaking">Breaking News</Badge>}
-          {article.editorsPick && <Badge variant="cyan">Editor's Pick</Badge>}
+          {article.editorsPick && <Badge variant="cyan">Editor&apos;s Pick</Badge>}
           {article.category && (
             <Badge className="bg-white/90 text-foreground hover:bg-white backdrop-blur-sm shadow-sm">
               {article.category.name}

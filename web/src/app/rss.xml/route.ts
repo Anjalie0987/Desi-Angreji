@@ -1,10 +1,19 @@
 import { sanityFetch } from "@/lib/sanity/fetch";
 
+interface RssArticle {
+  title: string;
+  slug: { current: string };
+  excerpt?: string;
+  publishDate: string;
+  authorName?: string;
+  categoryName?: string;
+}
+
 export async function GET() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://desiangrezi.com";
   
   // Fetch latest 20 articles
-  const articles = await sanityFetch<any[]>({
+  const articles = await sanityFetch<RssArticle[]>({
     query: `*[_type == "article" && status == "published"] | order(publishDate desc)[0...20]{
       title,
       slug,

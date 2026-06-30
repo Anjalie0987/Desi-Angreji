@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type ContainerProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function Container({ className, children, ...props }: ContainerProps) {
   return (
@@ -17,7 +17,7 @@ export function Container({ className, children, ...props }: ContainerProps) {
   );
 }
 
-export interface SectionProps extends React.HTMLAttributes<HTMLElement> {}
+export type SectionProps = React.HTMLAttributes<HTMLElement>;
 
 export function Section({ className, children, ...props }: SectionProps) {
   return (

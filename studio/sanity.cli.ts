@@ -4,5 +4,8 @@ export default defineCliConfig({
   api: {
     projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'your-project-id',
     dataset: process.env.SANITY_STUDIO_DATASET || 'production'
-  }
+  },
+  deployment: {
+    appId: 'rnvhklrpvypaazssapoi94qh',
+  },
 })

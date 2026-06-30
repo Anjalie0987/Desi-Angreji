@@ -1,9 +1,10 @@
 import * as React from "react";
 import { getLatestArticles } from "@/lib/sanity";
+import type { ArticleCard } from "@/lib/sanity/types/article";
 import { BreakingNewsTicker } from "../stories/breaking-news-ticker";
 
 export async function BreakingNewsWrapper() {
-  let displayArticles: any[] = [];
+  let displayArticles: ArticleCard[] = [];
   try {
     const articles = await getLatestArticles(5); 
     if (articles && articles.length > 0) {

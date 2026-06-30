@@ -2,11 +2,10 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock } from "lucide-react";
-import { cn, calculateReadingTime, formatDate } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import type { StoryProps } from "./types";
 
 export function LatestStoryCard({ article, className }: StoryProps) {
-  const readingTime = article.estimatedReadingTime || calculateReadingTime(article.excerpt || "");
 
   return (
     <article 

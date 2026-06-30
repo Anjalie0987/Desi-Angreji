@@ -16,7 +16,7 @@ export function EditorsPickCard({ article, className }: StoryProps) {
       </Link>
       
       <Badge variant="cyan" className="mb-6 scale-110 shadow-sm uppercase tracking-wider text-[10px]">
-        Editor's Pick
+        Editor&apos;s Pick
       </Badge>
 
       <h3 className="line-clamp-3 text-2xl font-bold font-heading leading-tight group-hover:text-brand transition-colors max-w-lg">

@@ -15,7 +15,7 @@ export async function EditorsSection() {
     <Section className="py-12 bg-white">
       <Container>
         <div className="flex flex-col items-center justify-center text-center mb-10">
-          <H2 className="border-b-0 m-0">Editor's Picks</H2>
+          <H2 className="border-b-0 m-0">Editor&apos;s Picks</H2>
           <p className="text-muted mt-2">Hand-picked stories for you</p>
         </div>
         

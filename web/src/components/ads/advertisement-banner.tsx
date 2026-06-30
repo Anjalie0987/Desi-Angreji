@@ -31,10 +31,13 @@ export function AdvertisementBanner({ ad, className, ...props }: AdvertisementBa
             Assuming CMS for now, so next/image is fine if configured. 
             We'll use a standard img tag with responsive classes for maximum flexibility 
             without needing to whitelist arbitrary ad domains. */}
-        <img 
+        <Image 
           src={ad.image} 
           alt={ad.title} 
+          width={800}
+          height={200}
           className="w-full h-auto object-contain bg-gray-50 rounded"
+          unoptimized
         />
         <div className="absolute -top-4 right-0 text-[10px] text-muted-foreground uppercase tracking-wider">
           Advertisement

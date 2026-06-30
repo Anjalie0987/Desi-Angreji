@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { X, ChevronRight, Globe } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import { Button } from "../ui/button";
 import type { Navigation } from "@/lib/sanity";
 

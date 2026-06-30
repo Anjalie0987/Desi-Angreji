@@ -1,10 +1,10 @@
 import * as React from "react";
-import Image from "next/image";
+
 import Link from "next/link";
 import { Clock, TrendingUp } from "lucide-react";
-import { cn, calculateReadingTime, formatDate } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import type { StoryProps } from "./types";
-import { Badge } from "../ui/badge";
+
 
 export function TrendingStoryCard({ article, className, rank }: StoryProps & { rank?: number }) {
   return (

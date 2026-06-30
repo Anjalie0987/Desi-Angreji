@@ -1,5 +1,5 @@
 import * as React from "react"
-import { SearchX, FileQuestion, type LucideIcon } from "lucide-react"
+import { FileQuestion, type LucideIcon } from "lucide-react"
 import { H3 } from "./typography"
 import { cn } from "@/lib/utils"
 

@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { Container, Section } from "@/components/layout/container"
-import { H1, H2 } from "@/components/ui/typography"
+import { H1 } from "@/components/ui/typography"
 import {
   Breadcrumb,
   BreadcrumbItem,

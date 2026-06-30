@@ -13,13 +13,13 @@ export default function NotFound() {
         action={
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <Button asChild variant="default">
-              <Link href="/">
+              <Link href="/" className="flex items-center">
                 <Home className="mr-2 h-4 w-4" />
                 Go Home
               </Link>
             </Button>
             <Button asChild variant="outline">
-              <Link href="/">
+              <Link href="/search" className="flex items-center">
                 <Search className="mr-2 h-4 w-4" />
                 Search Stories
               </Link>

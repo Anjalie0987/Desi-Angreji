@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { getSiteSettings } from "@/lib/sanity";
 import { AdvertisementBanner } from "@/components/ads";
 import { getInlineAd, getArticleBottomAd } from "@/lib/ads";
-import { Skeleton, NavbarSkeleton, TickerSkeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   HeroSection,
   TrendingSection,
@@ -11,8 +11,7 @@ import {
   CategorySection,
   VideoSection,
   EditorsSection,
-  PopularSection,
-  LoadMoreSection
+  PopularSection
 } from "@/components/home";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -143,8 +142,6 @@ export default async function Home() {
       <Suspense fallback={null}>
         <PopularSection />
       </Suspense>
-
-      <LoadMoreSection />
       
       {bottomAd && (
         <div className="py-8 flex justify-center">
