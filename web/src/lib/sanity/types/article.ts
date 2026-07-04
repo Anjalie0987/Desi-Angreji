@@ -24,7 +24,7 @@ export interface ArticleCard extends BaseDocument {
   breakingNews?: boolean;
   editorsPick?: boolean;
   estimatedReadingTime?: number;
-  category?: Pick<Category, '_id' | 'name' | 'slug' | 'colorTheme'>;
+  category?: Pick<Category, '_id' | 'name' | 'slug'>;
   author?: Pick<Author, '_id' | 'name' | 'slug' | 'photo' | 'designation' | 'website'>;
 }
 

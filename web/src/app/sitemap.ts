@@ -2,12 +2,12 @@ import { MetadataRoute } from 'next';
 import { sanityFetch } from '@/lib/sanity/fetch';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://desiangrezi.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://desiangreji.com';
 
   // Fetch all categories and articles
   const [categories, articles] = await Promise.all([
     sanityFetch<{ slug: { current: string }; _updatedAt: string }[]>({
-      query: `*[_type == "category"]{ slug, _updatedAt }`,
+      query: `*[_type == "category" && active == true]{ slug, _updatedAt }`,
       tags: ['category']
     }),
     sanityFetch<{ slug: { current: string }; _updatedAt: string }[]>({

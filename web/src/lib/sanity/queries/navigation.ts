@@ -10,11 +10,11 @@ export const navigationQuery = groq`
       title,
       link
     },
-    categoryMenu[]->{
+    "categoryMenu": *[_type == "category" && active == true && showInNavigation == true] | order(navigationOrder asc) {
       _id,
       name,
       "slug": slug.current,
-      colorTheme
+      "coverImage": coverImage.asset->url
     },
     quickLinks[]{
       title,

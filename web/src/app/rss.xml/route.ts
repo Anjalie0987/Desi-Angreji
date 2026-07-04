@@ -10,7 +10,7 @@ interface RssArticle {
 }
 
 export async function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://desiangrezi.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://desiangreji.com";
   
   // Fetch latest 20 articles
   const articles = await sanityFetch<RssArticle[]>({
@@ -28,7 +28,7 @@ export async function GET() {
   const feed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>Desi Angrezi</title>
+    <title>Desi Angreji</title>
     <link>${siteUrl}</link>
     <description>Modern content publishing platform for the latest news and engaging stories.</description>
     <language>en</language>

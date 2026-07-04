@@ -31,8 +31,8 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 
 export const metadata: Metadata = {
   title: {
-    default: "Desi Angrezi | Modern Content & Stories",
-    template: "%s | Desi Angrezi",
+    default: "Desi Angreji | Modern Content & Stories",
+    template: "%s | Desi Angreji",
   },
   description: "Modern content publishing platform. Premium destination for breaking news, engaging stories, and insightful articles.",
   verification: {
@@ -48,7 +48,7 @@ const getStructuredData = () => {
       {
         "@type": "Organization",
         "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/#organization`,
-        name: "Desi Angrezi",
+        name: "Desi Angreji",
         url: process.env.NEXT_PUBLIC_SITE_URL,
         logo: {
           "@type": "ImageObject",
@@ -59,7 +59,7 @@ const getStructuredData = () => {
         "@type": "WebSite",
         "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/#website`,
         url: process.env.NEXT_PUBLIC_SITE_URL,
-        name: "Desi Angrezi",
+        name: "Desi Angreji",
         publisher: {
           "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/#organization`,
         },

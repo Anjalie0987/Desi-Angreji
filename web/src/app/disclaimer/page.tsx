@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/breadcrumb"
 
 export const metadata: Metadata = {
-  title: "Disclaimer | Desi Angrezi",
-  description: "Legal disclaimer for Desi Angrezi platform.",
+  title: "Disclaimer | Desi Angreji",
+  description: "Legal disclaimer for Desi Angreji platform.",
 }
 
 export default function DisclaimerPage() {
@@ -49,10 +49,10 @@ export default function DisclaimerPage() {
           </div>
 
           {/* Content */}
-          <div className="lg:col-span-3 prose prose-gray max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-brand hover:prose-a:text-brand-hover">
+          <div className="lg:col-span-3 prose prose-gray max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-brand hover:prose-a:text-brand-hover [&_p]:text-justify [&_li]:text-justify">
             <h2 id="general">General Information</h2>
             <p>
-              The information provided by Desi Angrezi on desiangrezi.com is for general informational purposes only. 
+              The information provided by Desi Angreji on desiangreji.com is for general informational purposes only. 
               All information on the Site is provided in good faith, however, we make no representation or warranty of any kind, 
               express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any 
               information on the Site.
@@ -83,7 +83,7 @@ export default function DisclaimerPage() {
             <h2 id="contact">Contact Us</h2>
             <p>
               If you have any questions about this disclaimer, please contact us at 
-              <a href="mailto:hello@desiangrezi.com"> hello@desiangrezi.com</a>.
+              <a href="mailto:desiangreji88@gmail.com"> desiangreji88@gmail.com</a>.
             </p>
           </div>
         </div>

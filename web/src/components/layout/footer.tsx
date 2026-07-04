@@ -45,7 +45,7 @@ export async function Footer() {
                 <div className="relative h-12 w-40 mb-2">
                   <Image 
                     src={settings.logo} 
-                    alt={settings.siteName || "Desi Angrezi"} 
+                    alt={settings.siteName || "Desi Angreji"} 
                     fill
                     className="object-contain object-left"
                   />
@@ -147,7 +147,7 @@ export async function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 border-t pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted text-center md:text-left">
-            &copy; {currentYear} {settings?.siteName || "Desi Angrezi"}. All rights reserved.
+            &copy; {currentYear} {settings?.siteName || "Desi Angreji"}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-xs text-muted hover:text-brand">Privacy Policy</Link>

@@ -2,13 +2,12 @@ import { groq } from 'next-sanity';
 import { categoryFragment, seoFragment } from '../groq';
 
 export const allCategoriesQuery = groq`
-  *[_type == "category" && active == true] | order(displayOrder asc, name asc) {
+  *[_type == "category" && active == true] | order(navigationOrder asc, name asc) {
     _id,
     name,
     "slug": slug.current,
+    description,
     "coverImage": coverImage.asset->url,
-    icon,
-    colorTheme,
     showInNavigation,
     showOnHomepage,
     featured
@@ -16,25 +15,22 @@ export const allCategoriesQuery = groq`
 `;
 
 export const featuredCategoriesQuery = groq`
-  *[_type == "category" && active == true && featured == true] | order(displayOrder asc, name asc)[0...$limit] {
+  *[_type == "category" && active == true && featured == true] | order(navigationOrder asc, name asc)[0...$limit] {
     _id,
     name,
     "slug": slug.current,
-    "coverImage": coverImage.asset->url,
-    icon,
-    colorTheme
+    description,
+    "coverImage": coverImage.asset->url
   }
 `;
 
 export const categoryBySlugQuery = groq`
-  *[_type == "category" && slug.current == $slug][0] {
+  *[_type == "category" && active == true && slug.current == $slug][0] {
     _id,
     name,
     "slug": slug.current,
     description,
     "coverImage": coverImage.asset->url,
-    icon,
-    colorTheme,
     ${seoFragment}
   }
 `;
@@ -56,13 +52,11 @@ export const articlesByCategoryQuery = groq`
 `;
 
 export const relatedCategoriesQuery = groq`
-  *[_type == "category" && active == true && slug.current != $currentSlug] | order(displayOrder asc, name asc)[0...$limit] {
+  *[_type == "category" && active == true && slug.current != $currentSlug] | order(navigationOrder asc, name asc)[0...$limit] {
     _id,
     name,
     "slug": slug.current,
-    "coverImage": coverImage.asset->url,
-    icon,
-    colorTheme
+    "coverImage": coverImage.asset->url
   }
 `;
 

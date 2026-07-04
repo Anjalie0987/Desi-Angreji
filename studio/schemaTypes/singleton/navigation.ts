@@ -7,7 +7,6 @@ export const navigation = defineType({
   fieldsets: [
     { name: 'header', title: 'Header Menu', options: { collapsible: true, collapsed: false } },
     { name: 'footer', title: 'Footer Menu', options: { collapsible: true, collapsed: true } },
-    { name: 'categories', title: 'Category Menu', options: { collapsible: true, collapsed: true } },
     { name: 'quickLinks', title: 'Quick Links', options: { collapsible: true, collapsed: true } },
   ],
   fields: [
@@ -38,18 +37,6 @@ export const navigation = defineType({
             { name: 'title', title: 'Title', type: 'string', validation: (Rule) => Rule.required() },
             { name: 'link', title: 'Link (URL or Path)', type: 'string', validation: (Rule) => Rule.required() },
           ],
-        },
-      ],
-    }),
-    defineField({
-      name: 'categoryMenu',
-      title: 'Category Menu',
-      type: 'array',
-      fieldset: 'categories',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'category' }],
         },
       ],
     }),

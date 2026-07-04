@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/breadcrumb"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Desi Angrezi",
+  title: "Privacy Policy | Desi Angreji",
   description: "Learn how we collect, use, and protect your data.",
 }
 
@@ -50,10 +50,10 @@ export default function PrivacyPage() {
           </div>
 
           {/* Content */}
-          <div className="lg:col-span-3 prose prose-gray max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-brand hover:prose-a:text-brand-hover">
+          <div className="lg:col-span-3 prose prose-gray max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-brand hover:prose-a:text-brand-hover [&_p]:text-justify [&_li]:text-justify">
             <p>
-              At Desi Angrezi, accessible from desiangrezi.com, one of our main priorities is the privacy of our visitors. 
-              This Privacy Policy document contains types of information that is collected and recorded by Desi Angrezi and how we use it.
+              At Desi Angreji, accessible from desiangreji.com, one of our main priorities is the privacy of our visitors. 
+              This Privacy Policy document contains types of information that is collected and recorded by Desi Angreji and how we use it.
             </p>
 
             <h2 id="information-collection">Information Collection</h2>
@@ -95,7 +95,7 @@ export default function PrivacyPage() {
             <h2 id="contact">Contact Us</h2>
             <p>
               If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at 
-              <a href="mailto:hello@desiangrezi.com"> hello@desiangrezi.com</a>.
+              <a href="mailto:desiangreji88@gmail.com"> desiangreji88@gmail.com</a>.
             </p>
           </div>
         </div>

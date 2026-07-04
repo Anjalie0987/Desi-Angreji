@@ -11,7 +11,8 @@ import {
   CategorySection,
   VideoSection,
   EditorsSection,
-  PopularSection
+  PopularSection,
+  FeaturedCategoriesSection
 } from "@/components/home";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -19,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   
   if (!settings) {
     return {
-      title: "Desi Angrezi | Modern Content Platform",
+      title: "Desi Angreji | Modern Content Platform",
       description: "Your premium destination for modern content, breaking news, and engaging stories.",
     };
   }
@@ -32,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     keywords: settings.defaultSeo?.focusKeywords,
     alternates: {
-      canonical: settings.defaultSeo?.canonicalUrl || "https://desiangrezi.com",
+      canonical: settings.defaultSeo?.canonicalUrl || "https://desiangreji.com",
     },
     openGraph: {
       title,
@@ -96,9 +97,9 @@ export default async function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "Desi Angrezi",
-            url: "https://desiangrezi.com",
-            logo: "https://desiangrezi.com/logo.png"
+            name: "Desi Angreji",
+            url: "https://desiangreji.com",
+            logo: "https://desiangreji.com/logo.png"
           })
         }}
       />
@@ -109,6 +110,10 @@ export default async function Home() {
 
       <Suspense fallback={<GridSkeleton />}>
         <TrendingSection />
+      </Suspense>
+
+      <Suspense fallback={null}>
+        <FeaturedCategoriesSection />
       </Suspense>
 
       {inlineAd1 && (

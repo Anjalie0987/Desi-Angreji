@@ -4,17 +4,37 @@ export const category = defineType({
   name: 'category',
   title: 'Category',
   type: 'document',
+  fieldsets: [
+    {
+      name: 'basicInformation',
+      title: 'Basic Information',
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: 'displaySettings',
+      title: 'Display Settings',
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: 'seoSettings',
+      title: 'SEO Settings',
+      options: { collapsible: true, collapsed: true },
+    },
+  ],
   fields: [
+    // --- Basic Information ---
     defineField({
       name: 'name',
       title: 'Name',
       type: 'string',
+      fieldset: 'basicInformation',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      fieldset: 'basicInformation',
       options: {
         source: 'name',
         maxLength: 96,
@@ -25,70 +45,68 @@ export const category = defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
+      fieldset: 'basicInformation',
       rows: 3,
     }),
-    defineField({
-      name: 'parentCategory',
-      title: 'Parent Category',
-      type: 'reference',
-      to: [{ type: 'category' }],
-      description: 'Select a parent category if this is a subcategory.',
-    }),
+
+    // --- Display Settings ---
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
       type: 'image',
+      fieldset: 'displaySettings',
       options: { hotspot: true },
     }),
     defineField({
-      name: 'icon',
-      title: 'Icon',
-      type: 'string',
-      description: 'Icon class or name (e.g., from an icon library).',
-    }),
-    defineField({
-      name: 'colorTheme',
-      title: 'Color Theme',
-      type: 'string',
-      description: 'Hex code or CSS color for this category.',
-      validation: (Rule) =>
-        Rule.regex(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/, { name: 'hex color', invert: false })
-          .warning('Should be a valid hex color code (e.g., #FF0000)'),
+      name: 'active',
+      title: 'Active',
+      type: 'boolean',
+      fieldset: 'displaySettings',
+      initialValue: true,
+      description: 'If disabled, the category should not be shown anywhere on the frontend.',
     }),
     defineField({
       name: 'showInNavigation',
       title: 'Show in Navigation',
       type: 'boolean',
-      initialValue: true,
+      fieldset: 'displaySettings',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'navigationOrder',
+      title: 'Navigation Order',
+      type: 'number',
+      fieldset: 'displaySettings',
+      hidden: ({ document }) => !document?.showInNavigation,
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          if (context.document?.showInNavigation && value === undefined) {
+            return 'Navigation Order is required when Show in Navigation is enabled.';
+          }
+          return true;
+        }),
     }),
     defineField({
       name: 'showOnHomepage',
       title: 'Show on Homepage',
       type: 'boolean',
+      fieldset: 'displaySettings',
       initialValue: true,
     }),
     defineField({
       name: 'featured',
       title: 'Featured Category',
       type: 'boolean',
+      fieldset: 'displaySettings',
       initialValue: false,
     }),
-    defineField({
-      name: 'active',
-      title: 'Active',
-      type: 'boolean',
-      initialValue: true,
-    }),
-    defineField({
-      name: 'displayOrder',
-      title: 'Display Order',
-      type: 'number',
-      initialValue: 0,
-    }),
+
+    // --- SEO Settings ---
     defineField({
       name: 'seo',
       title: 'SEO Settings',
-      type: 'seo',
+      type: 'categorySeo',
+      fieldset: 'seoSettings',
     }),
   ],
   preview: {

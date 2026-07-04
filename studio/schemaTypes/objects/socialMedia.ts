@@ -25,7 +25,7 @@ export const socialMedia = defineType({
       title: 'Share URL',
       type: 'string',
       readOnly: true,
-      description: 'Automatically generated from the article slug. Example: https://desiangrezi.com/story/article-slug',
+      description: 'Automatically generated from the article slug. Example: https://desiangreji.com/story/article-slug',
     }),
     defineField({
       name: 'facebookCaption',

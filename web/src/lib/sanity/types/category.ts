@@ -5,12 +5,10 @@ export interface Category extends BaseDocument {
   slug: string;
   description?: string;
   coverImage?: string;
-  icon?: string;
-  colorTheme?: string;
   showInNavigation?: boolean;
+  navigationOrder?: number;
   showOnHomepage?: boolean;
   featured?: boolean;
   active?: boolean;
-  displayOrder?: number;
   seo?: SeoData;
 }

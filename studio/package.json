@@ -12,10 +12,19 @@
     "deploy-graphql": "sanity graphql deploy"
   },
   "dependencies": {
+    "@portabletext/block-tools": "^5.1.9",
+    "@sanity/block-tools": "^3.70.0",
+    "@sanity/schema": "^6.3.0",
     "@sanity/vision": "^6.2.0",
+    "marked": "^18.0.5",
+    "papaparse": "^5.5.4",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "sanity": "^6.2.0",
-    "styled-components": "^6.4.3"
+    "styled-components": "^6.4.3",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/papaparse": "^5.5.2"
   }
 }

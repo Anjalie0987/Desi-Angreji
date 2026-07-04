@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 // Custom Block Renderers
 const components: PortableTextComponents = {
   block: {
-    normal: ({ children }) => <p className="mb-6 text-lg leading-relaxed text-gray-800">{children}</p>,
+    normal: ({ children }) => <p className="mb-6 text-lg leading-relaxed text-gray-800 text-justify">{children}</p>,
     h2: ({ children }) => <h2 className="mt-12 mb-6 text-3xl font-bold font-heading text-gray-900">{children}</h2>,
     h3: ({ children }) => <h3 className="mt-10 mb-4 text-2xl font-bold font-heading text-gray-900">{children}</h3>,
     h4: ({ children }) => <h4 className="mt-8 mb-4 text-xl font-bold font-heading text-gray-900">{children}</h4>,

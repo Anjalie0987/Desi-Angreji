@@ -53,7 +53,7 @@ export function generateShareLink(platform: 'facebook' | 'twitter' | 'whatsapp' 
   
   switch (platform) {
     case 'facebook':
-      return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+      return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}${encodedText ? `&quote=${encodedText}` : ''}`;
     case 'twitter':
       return `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`;
     case 'whatsapp':

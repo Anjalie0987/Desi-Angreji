@@ -50,9 +50,7 @@ export const categoryFragment = groq`
     _id,
     name,
     "slug": slug.current,
-    "coverImage": coverImage.asset->url,
-    icon,
-    colorTheme
+    "coverImage": coverImage.asset->url
   }
 `;
 

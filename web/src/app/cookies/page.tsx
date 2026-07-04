@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/breadcrumb"
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | Desi Angrezi",
+  title: "Cookie Policy | Desi Angreji",
   description: "Learn how we use cookies and tracking technologies.",
 }
 
@@ -50,7 +50,7 @@ export default function CookiePolicyPage() {
           </div>
 
           {/* Content */}
-          <div className="lg:col-span-3 prose prose-gray max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-brand hover:prose-a:text-brand-hover">
+          <div className="lg:col-span-3 prose prose-gray max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-brand hover:prose-a:text-brand-hover [&_p]:text-justify [&_li]:text-justify">
             <h2 id="what-are-cookies">What Are Cookies</h2>
             <p>
               Cookies are small pieces of text sent to your web browser by a website you visit. A cookie file is stored 
@@ -89,7 +89,7 @@ export default function CookiePolicyPage() {
             <h2 id="contact">Contact Us</h2>
             <p>
               If you have any questions about our Cookie Policy, please contact us at 
-              <a href="mailto:hello@desiangrezi.com"> hello@desiangrezi.com</a>.
+              <a href="mailto:desiangreji88@gmail.com"> desiangreji88@gmail.com</a>.
             </p>
           </div>
         </div>

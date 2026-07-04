@@ -5,4 +5,5 @@ export * from "./category-section";
 export * from "./video-section";
 export * from "./editors-section";
 export * from "./popular-section";
+export * from "./featured-categories";
 export * from "./load-more-section";

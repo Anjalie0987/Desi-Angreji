@@ -13,7 +13,6 @@ import {
   ArticleProgress,
   RelatedStories,
   ContinueReading,
-  NewsletterSection,
   CommentsPlaceholder,
   SocialToolkit
 } from "@/components/article";
@@ -34,10 +33,10 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     return { title: "Story Not Found" };
   }
 
-  const siteName = settings?.siteName || "Desi Angrezi";
+  const siteName = settings?.siteName || "Desi Angreji";
   const title = article.seo?.metaTitle || article.title;
   const description = article.seo?.metaDescription || article.excerpt || "";
-  const url = `${settings?.defaultSeo?.canonicalUrl || "https://desiangrezi.com"}/story/${article.slug}`;
+  const url = `${settings?.defaultSeo?.canonicalUrl || "https://desiangreji.com"}/story/${article.slug}`;
 
   const ogImages = [];
   if (article.seo?.openGraphImage) {
@@ -90,7 +89,7 @@ export default async function StoryPage(props: PageProps) {
     notFound();
   }
 
-  const siteUrl = settings?.defaultSeo?.canonicalUrl || "https://desiangrezi.com";
+  const siteUrl = settings?.defaultSeo?.canonicalUrl || "https://desiangreji.com";
   const articleUrl = `${siteUrl}/story/${article.slug}`;
 
   // Generate NewsArticle JSON-LD
@@ -108,7 +107,7 @@ export default async function StoryPage(props: PageProps) {
     }] : [],
     "publisher": {
       "@type": "Organization",
-      "name": settings?.siteName || "Desi Angrezi",
+      "name": settings?.siteName || "Desi Angreji",
       "logo": {
         "@type": "ImageObject",
         "url": settings?.logo || `${siteUrl}/logo.png`
@@ -133,6 +132,12 @@ export default async function StoryPage(props: PageProps) {
           {/* Main Content Area */}
           <main className="lg:col-span-8 xl:col-span-8">
             <ArticleHeader article={article} />
+
+            {/* Portable Text Content (Entire Story) */}
+            <div className="mb-6">
+              <RichText content={article.content as unknown[]} className="prose-lg" />
+            </div>
+
             <ArticleMeta article={article} />
 
             {/* Featured Image */}
@@ -149,21 +154,15 @@ export default async function StoryPage(props: PageProps) {
               </figure>
             )}
 
-            {/* Content & Inline Ads */}
-            <div className="mt-8">
-              {/* Insert Ad after featured image */}
-              {middleAd && (
-                <div className="my-8 flex justify-center">
-                  <AdvertisementBanner ad={middleAd} />
-                </div>
-              )}
-
-              {/* Portable Text */}
-              <RichText content={article.content as unknown[]} className="prose-lg" />
-              
-              {/* Comments */}
-              <CommentsPlaceholder />
-            </div>
+            {/* Advertisement Banner */}
+            {middleAd && (
+              <div className="my-8 flex justify-center">
+                <AdvertisementBanner ad={middleAd} />
+              </div>
+            )}
+            
+            {/* Comments */}
+            <CommentsPlaceholder />
           </main>
 
           {/* Sticky Sidebar */}
@@ -210,8 +209,6 @@ export default async function StoryPage(props: PageProps) {
         <ContinueReading nextStory={nextStory} currentId={article._id} />
       </Suspense>
 
-      {/* Newsletter */}
-      <NewsletterSection />
 
       {/* Social Toolkit (Dev Only) */}
       <SocialToolkit article={article} url={articleUrl} />

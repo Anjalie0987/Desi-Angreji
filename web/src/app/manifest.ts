@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Desi Angrezi',
-    short_name: 'Desi Angrezi',
+    name: 'Desi Angreji',
+    short_name: 'Desi Angreji',
     description: 'Modern content publishing platform for the latest news and engaging stories.',
     start_url: '/',
     display: 'standalone',

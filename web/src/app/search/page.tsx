@@ -4,7 +4,7 @@ import { Section, Container } from "@/components/layout/container";
 import { CompactStoryCard } from "@/components/stories";
 
 export const metadata: Metadata = {
-  title: "Search Results | Desi Angrezi",
+  title: "Search Results | Desi Angreji",
 };
 
 export default async function SearchPage(props: {

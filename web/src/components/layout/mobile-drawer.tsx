@@ -2,7 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { X, ChevronRight, Globe } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { X, ChevronRight, ChevronDown, Globe, LayoutGrid } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 import { Button } from "../ui/button";
 import type { Navigation } from "@/lib/sanity";
@@ -14,6 +16,9 @@ interface MobileDrawerProps {
 }
 
 export function MobileDrawer({ isOpen, onClose, navigation }: MobileDrawerProps) {
+  const [openAccordion, setOpenAccordion] = React.useState<string | null>(null);
+  const pathname = usePathname();
+
   // Prevent scrolling when drawer is open
   React.useEffect(() => {
     if (isOpen) {
@@ -29,7 +34,13 @@ export function MobileDrawer({ isOpen, onClose, navigation }: MobileDrawerProps)
   if (!isOpen) return null;
 
   const categories = navigation?.categoryMenu || [];
-  const headerLinks = navigation?.headerMenu || [];
+  const headerLinks = (navigation?.headerMenu && navigation.headerMenu.length > 0) ? navigation.headerMenu : [
+    { title: "Home", link: "/" },
+    { title: "Latest", link: "/latest" },
+    { title: "Trending", link: "/trending" },
+    { title: "Categories", link: "/categories" },
+    { title: "Videos", link: "/videos" }
+  ];
   const quickLinks = navigation?.quickLinks || [];
 
   return (
@@ -59,6 +70,57 @@ export function MobileDrawer({ isOpen, onClose, navigation }: MobileDrawerProps)
                 {headerLinks.map((item, idx) => {
                   const isHome = item.link === 'home' || item.link === '/';
                   const href = item.link.startsWith('http') ? item.link : (isHome ? '/' : `/${item.link.replace(/^\//, '')}`);
+                  if (item.title.toLowerCase() === 'categories') {
+                    const isExpanded = openAccordion === 'categories';
+                    return (
+                      <div key={`m-header-${idx}`} className="flex flex-col">
+                        <button
+                          onClick={() => setOpenAccordion(isExpanded ? null : 'categories')}
+                          className="flex items-center justify-between px-4 py-3 text-sm font-medium hover:bg-gray-50 active:bg-gray-100 transition-colors w-full text-left"
+                          aria-expanded={isExpanded}
+                        >
+                          {item.title}
+                          <ChevronDown className={cn("h-4 w-4 text-muted transition-transform", isExpanded && "rotate-180")} />
+                        </button>
+                        {isExpanded && (
+                          <div className="bg-gray-50/50 border-y flex flex-col animate-in fade-in duration-200">
+                            {categories.length === 0 ? (
+                              <div className="px-8 py-4 text-sm text-muted-foreground">
+                                No categories available.
+                              </div>
+                            ) : (
+                              <>
+                                {categories.map((cat) => {
+                                  const isActive = pathname === `/category/${cat.slug}`;
+                                  return (
+                                    <Link 
+                                      key={cat._id}
+                                      href={`/category/${cat.slug}`}
+                                      className={cn(
+                                        "flex items-center gap-3 px-8 py-3 text-sm transition-colors",
+                                        isActive ? "bg-brand/5 text-brand font-semibold" : "text-foreground hover:bg-gray-100 active:bg-gray-200"
+                                      )}
+                                      onClick={onClose}
+                                    >
+                                      {cat.name}
+                                    </Link>
+                                  );
+                                })}
+                                <Link 
+                                  href="/categories" 
+                                  onClick={onClose}
+                                  className="px-8 py-3 text-sm font-semibold text-brand hover:text-brand/80 transition-colors"
+                                >
+                                  View All Categories &rarr;
+                                </Link>
+                              </>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+
                   return (
                     <Link 
                       key={`m-header-${idx}`}
@@ -71,27 +133,6 @@ export function MobileDrawer({ isOpen, onClose, navigation }: MobileDrawerProps)
                     </Link>
                   );
                 })}
-              </nav>
-            </>
-          )}
-
-          {categories.length > 0 && (
-            <>
-              <div className="px-4 pb-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-muted">Categories</span>
-              </div>
-              <nav className="flex flex-col">
-                {categories.map((cat) => (
-                  <Link 
-                    key={cat._id}
-                    href={`/category/${cat.slug}`}
-                    className="flex items-center justify-between px-4 py-3 text-sm font-medium hover:bg-gray-50 active:bg-gray-100 transition-colors"
-                    onClick={onClose}
-                  >
-                    {cat.name}
-                    <ChevronRight className="h-4 w-4 text-muted" />
-                  </Link>
-                ))}
               </nav>
             </>
           )}

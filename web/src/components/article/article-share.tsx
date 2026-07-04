@@ -15,7 +15,7 @@ export function ArticleShare({ url, title, socialData }: ArticleShareProps) {
   const [copiedLink, setCopiedLink] = React.useState(false);
   const [copiedCaption, setCopiedCaption] = React.useState(false);
 
-  const fbLink = generateShareLink('facebook', url, title);
+  const fbLink = generateShareLink('facebook', url, socialData?.facebookCaption || title);
   const twLink = generateShareLink('twitter', url, socialData?.xCaption || title);
   const waLink = generateShareLink('whatsapp', url, socialData?.whatsappCaption || title);
   const inLink = generateShareLink('linkedin', url, socialData?.linkedinCaption || title);
@@ -52,9 +52,17 @@ export function ArticleShare({ url, title, socialData }: ArticleShareProps) {
         <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Share</h4>
         <div className="flex flex-row lg:flex-col gap-2">
           {/* Facebook */}
-          <a href={fbLink} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors" aria-label="Share on Facebook">
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              copyToClipboard(socialData?.facebookCaption || title, 'caption');
+              window.open(fbLink, '_blank', 'width=600,height=400');
+            }}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors" 
+            aria-label="Share on Facebook"
+          >
             <span className="font-bold text-sm">f</span>
-          </a>
+          </button>
           
           {/* X / Twitter */}
           <a href={twLink} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white hover:bg-gray-800 transition-colors" aria-label="Share on X">

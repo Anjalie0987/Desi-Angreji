@@ -8,7 +8,7 @@ import { CopyUrlAction } from './actions/CopyUrlAction'
 
 export default defineConfig({
   name: 'default',
-  title: 'Desi Angrezi',
+  title: 'Desi Angreji',
 
   projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
   dataset: process.env.SANITY_STUDIO_DATASET!,

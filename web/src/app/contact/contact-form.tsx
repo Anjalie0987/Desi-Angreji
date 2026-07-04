@@ -121,7 +121,7 @@ export function ContactForm() {
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
             className="w-full h-12 px-4 rounded-md border border-gray-300 focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors"
-            placeholder="john@example.com"
+            placeholder="desiangreji88@gmail.com"
             {...register("email")}
           />
           {errors.email && (

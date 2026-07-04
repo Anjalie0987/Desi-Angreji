@@ -1,4 +1,5 @@
 import { seo } from './objects/seo';
+import { categorySeo } from './objects/categorySeo';
 import { socialMedia } from './objects/socialMedia';
 import { richContent } from './objects/richContent';
 import { youtube } from './objects/youtube';
@@ -10,6 +11,7 @@ import { author } from './documents/author';
 import { tag } from './documents/tag';
 import { mediaAsset } from './documents/mediaAsset';
 import { article } from './documents/article';
+import { importHistory } from './documents/importHistory';
 
 import { siteSettings } from './singleton/siteSettings';
 import { navigation } from './singleton/navigation';
@@ -17,6 +19,7 @@ import { navigation } from './singleton/navigation';
 export const schemaTypes = [
   // Objects
   seo,
+  categorySeo,
   socialMedia,
   richContent,
   youtube,
@@ -29,6 +32,7 @@ export const schemaTypes = [
   tag,
   mediaAsset,
   article,
+  importHistory,
 
   // Singletons
   siteSettings,

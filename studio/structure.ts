@@ -1,4 +1,6 @@
 import type { StructureResolver } from 'sanity/structure';
+import BulkImportTool from './components/BulkImport';
+import BulkStoryManager from './components/BulkOperations/BulkStoryManager';
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -7,7 +9,27 @@ export const structure: StructureResolver = (S) =>
       // Stories
       S.listItem()
         .title('📝 Stories')
-        .child(S.documentTypeList('article').title('Stories')),
+        .child(
+          S.component(BulkStoryManager)
+            .title('Stories')
+            .id('storiesManager')
+        ),
+
+      S.listItem()
+        .title('📥 Bulk Story Import')
+        .child(
+          S.component(BulkImportTool)
+            .title('Bulk Story Import')
+            .id('bulkImport')
+        ),
+
+      S.listItem()
+        .title('🕰 Import History')
+        .child(
+          S.documentTypeList('importHistory')
+            .title('Import History')
+            .defaultOrdering([{ field: 'importDate', direction: 'desc' }])
+        ),
 
       S.divider(),
 

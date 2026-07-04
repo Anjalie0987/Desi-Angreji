@@ -7,7 +7,7 @@ export interface CategoryNavItem {
   _id: string;
   name: string;
   slug: string;
-  colorTheme?: string;
+  coverImage?: string;
 }
 
 export interface Navigation {

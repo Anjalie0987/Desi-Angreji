@@ -2,7 +2,6 @@ import { Metadata } from "next"
 
 import { Container, Section } from "@/components/layout/container"
 import { H1, H2 } from "@/components/ui/typography"
-import { NewsletterSection } from "@/components/article/newsletter-section"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,8 +13,8 @@ import {
 import { ContactForm } from "./contact-form"
 
 export const metadata: Metadata = {
-  title: "Contact Us | Desi Angrezi",
-  description: "Get in touch with the Desi Angrezi team. We'd love to hear from you.",
+  title: "Contact Us | Desi Angreji",
+  description: "Get in touch with the Desi Angreji team. We'd love to hear from you.",
 }
 
 export default function ContactPage() {
@@ -36,7 +35,7 @@ export default function ContactPage() {
           </Breadcrumb>
           
           <H1 className="mb-6 text-4xl font-bold lg:text-5xl">Contact Us</H1>
-          <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-2xl leading-relaxed text-justify">
             Have a question, feedback, or a story pitch? We&apos;d love to hear from you. 
             Fill out the form below or reach us through our direct channels.
           </p>
@@ -51,8 +50,6 @@ export default function ContactPage() {
           </div>
         </Container>
       </Section>
-
-      <NewsletterSection />
     </>
   )
 }

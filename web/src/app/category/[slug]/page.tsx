@@ -12,7 +12,6 @@ import { HeroStoryCard, CompactStoryCard } from "@/components/stories";
 import { AdvertisementBanner } from "@/components/ads";
 import { getInlineAd, getArticleBottomAd } from "@/lib/ads";
 import { Section, Container } from "@/components/layout/container";
-import { NewsletterSection } from "@/components/article";
 
 type PageProps = {
   params: Promise<{
@@ -30,10 +29,10 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     return { title: "Category Not Found" };
   }
 
-  const siteName = settings?.siteName || "Desi Angrezi";
-  const title = category.seo?.metaTitle || `${category.name} News & Updates`;
-  const description = category.seo?.metaDescription || category.description || `Read the latest stories about ${category.name}.`;
-  const url = `${settings?.defaultSeo?.canonicalUrl || "https://desiangrezi.com"}/category/${category.slug}`;
+  const siteName = settings?.siteName || "Desi Angreji";
+  const title = category.seo?.metaTitle || `${category.name} | ${siteName}`;
+  const description = category.seo?.metaDescription || category.description || `Read the latest ${category.name} stories and updates on Desi Angreji.`;
+  const url = `${settings?.defaultSeo?.canonicalUrl || "https://desiangreji.com"}/category/${category.slug}`;
 
   const ogImages = [];
   if (category.seo?.openGraphImage) {
@@ -95,7 +94,7 @@ export default async function CategoryPage(props: PageProps) {
     remainingArticles = articles.filter(a => a._id !== featuredStory?._id);
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://desiangrezi.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://desiangreji.com";
   
   const jsonLd = {
     "@context": "https://schema.org",
@@ -170,9 +169,6 @@ export default async function CategoryPage(props: PageProps) {
           )}
         </>
       )}
-
-      {/* Newsletter */}
-      <NewsletterSection />
     </main>
   );
 }

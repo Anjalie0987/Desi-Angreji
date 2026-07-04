@@ -20,13 +20,11 @@ export const homepageLatestQuery = groq`
 `;
 
 export const homepageCategoriesQuery = groq`
-  *[_type == "category" && active == true && showOnHomepage == true] | order(displayOrder asc)[0...4] {
+  *[_type == "category" && active == true && showOnHomepage == true] | order(navigationOrder asc)[0...4] {
     _id,
     name,
     "slug": slug.current,
     "coverImage": coverImage.asset->url,
-    icon,
-    colorTheme,
     "articles": *[_type == "article" && status == "published" && references(^._id)] | order(publishDate desc)[0...4] {
       ${articleCardFragment}
     }

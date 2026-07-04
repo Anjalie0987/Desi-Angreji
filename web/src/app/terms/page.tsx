@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/breadcrumb"
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Desi Angrezi",
-  description: "Terms and conditions for using the Desi Angrezi platform.",
+  title: "Terms & Conditions | Desi Angreji",
+  description: "Terms and conditions for using the Desi Angreji platform.",
 }
 
 export default function TermsPage() {
@@ -50,10 +50,10 @@ export default function TermsPage() {
           </div>
 
           {/* Content */}
-          <div className="lg:col-span-3 prose prose-gray max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-brand hover:prose-a:text-brand-hover">
+          <div className="lg:col-span-3 prose prose-gray max-w-none prose-headings:font-heading prose-headings:font-bold prose-a:text-brand hover:prose-a:text-brand-hover [&_p]:text-justify [&_li]:text-justify">
             <p>
-              Welcome to Desi Angrezi. By accessing this website, we assume you accept these terms and conditions. 
-              Do not continue to use Desi Angrezi if you do not agree to take all of the terms and conditions stated on this page.
+              Welcome to Desi Angreji. By accessing this website, we assume you accept these terms and conditions. 
+              Do not continue to use Desi Angreji if you do not agree to take all of the terms and conditions stated on this page.
             </p>
 
             <h2 id="acceptance">Acceptance of Terms</h2>
@@ -64,37 +64,37 @@ export default function TermsPage() {
 
             <h2 id="intellectual-property">Intellectual Property Rights</h2>
             <p>
-              Unless otherwise stated, Desi Angrezi and/or its licensors own the intellectual property rights for all material on 
-              Desi Angrezi. All intellectual property rights are reserved. You may access this from Desi Angrezi for your own 
+              Unless otherwise stated, Desi Angreji and/or its licensors own the intellectual property rights for all material on 
+              Desi Angreji. All intellectual property rights are reserved. You may access this from Desi Angreji for your own 
               personal use subjected to restrictions set in these terms and conditions.
             </p>
             <p>You must not:</p>
             <ul>
-              <li>Republish material from Desi Angrezi without credit</li>
-              <li>Sell, rent or sub-license material from Desi Angrezi</li>
-              <li>Reproduce, duplicate or copy material from Desi Angrezi</li>
-              <li>Redistribute content from Desi Angrezi</li>
+              <li>Republish material from Desi Angreji without credit</li>
+              <li>Sell, rent or sub-license material from Desi Angreji</li>
+              <li>Reproduce, duplicate or copy material from Desi Angreji</li>
+              <li>Redistribute content from Desi Angreji</li>
             </ul>
 
             <h2 id="user-content">User Content</h2>
             <p>
               Certain parts of this website may offer the opportunity for users to post and exchange opinions and information. 
-              Desi Angrezi does not filter, edit, publish or review Comments prior to their presence on the website. Comments do 
-              not reflect the views and opinions of Desi Angrezi, its agents, or affiliates.
+              Desi Angreji does not filter, edit, publish or review Comments prior to their presence on the website. Comments do 
+              not reflect the views and opinions of Desi Angreji, its agents, or affiliates.
             </p>
 
             <h2 id="limitations">Limitations of Liability</h2>
             <p>
-              In no event shall Desi Angrezi, nor any of its officers, directors and employees, shall be held liable for anything 
+              In no event shall Desi Angreji, nor any of its officers, directors and employees, shall be held liable for anything 
               arising out of or in any way connected with your use of this website whether such liability is under contract. 
-              Desi Angrezi, including its officers, directors and employees shall not be held liable for any indirect, consequential 
+              Desi Angreji, including its officers, directors and employees shall not be held liable for any indirect, consequential 
               or special liability arising out of or in any way related to your use of this website.
             </p>
 
             <h2 id="contact">Contact Us</h2>
             <p>
               If you have any questions or suggestions about our Terms & Conditions, do not hesitate to contact us at 
-              <a href="mailto:hello@desiangrezi.com"> hello@desiangrezi.com</a>.
+              <a href="mailto:desiangreji88@gmail.com"> desiangreji88@gmail.com</a>.
             </p>
           </div>
         </div>
