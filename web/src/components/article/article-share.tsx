@@ -16,6 +16,7 @@ export function ArticleShare({ url, title, socialData }: ArticleShareProps) {
   const [copiedCaption, setCopiedCaption] = React.useState(false);
 
   const fbLink = generateShareLink('facebook', url, socialData?.facebookCaption || title);
+  const igLink = generateShareLink('instagram', url, socialData?.instagramCaption || title);
   const twLink = generateShareLink('twitter', url, socialData?.xCaption || title);
   const waLink = generateShareLink('whatsapp', url, socialData?.whatsappCaption || title);
   const inLink = generateShareLink('linkedin', url, socialData?.linkedinCaption || title);
@@ -62,6 +63,34 @@ export function ArticleShare({ url, title, socialData }: ArticleShareProps) {
             aria-label="Share on Facebook"
           >
             <span className="font-bold text-sm">f</span>
+          </button>
+
+          {/* Instagram */}
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              copyToClipboard(socialData?.instagramCaption || title, 'caption');
+              window.open(igLink, '_blank', 'width=600,height=600');
+            }}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white hover:opacity-90 transition-opacity" 
+            aria-label="Share on Instagram"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className="h-5 w-5"
+            >
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
           </button>
           
           {/* X / Twitter */}

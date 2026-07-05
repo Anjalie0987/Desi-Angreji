@@ -47,7 +47,7 @@ export function truncateText(text: string, maxLength: number): string {
 /**
  * Generate share links for social platforms.
  */
-export function generateShareLink(platform: 'facebook' | 'twitter' | 'whatsapp' | 'linkedin', url: string, text?: string): string {
+export function generateShareLink(platform: 'facebook' | 'twitter' | 'whatsapp' | 'linkedin' | 'instagram', url: string, text?: string): string {
   const encodedUrl = encodeURIComponent(url);
   const encodedText = text ? encodeURIComponent(text) : '';
   
@@ -60,6 +60,8 @@ export function generateShareLink(platform: 'facebook' | 'twitter' | 'whatsapp' 
       return `https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`;
     case 'linkedin':
       return `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedText}`;
+    case 'instagram':
+      return `https://instagram.com`;
     default:
       return url;
   }
