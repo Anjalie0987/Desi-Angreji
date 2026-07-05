@@ -49,7 +49,10 @@ export function truncateText(text: string, maxLength: number): string {
  */
 export function generateShareLink(platform: 'facebook' | 'twitter' | 'whatsapp' | 'linkedin' | 'instagram', url: string, text?: string): string {
   const encodedUrl = encodeURIComponent(url);
-  const encodedText = text ? encodeURIComponent(text) : '';
+  
+  // Clean text by removing the URL if it's already present to prevent duplication
+  const cleanText = text ? text.replace(url, '').trim() : '';
+  const encodedText = encodeURIComponent(cleanText);
   
   switch (platform) {
     case 'facebook':
@@ -57,7 +60,7 @@ export function generateShareLink(platform: 'facebook' | 'twitter' | 'whatsapp' 
     case 'twitter':
       return `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`;
     case 'whatsapp':
-      return `https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`;
+      return `https://api.whatsapp.com/send?text=${encodedText ? encodedText + '%20' : ''}${encodedUrl}`;
     case 'linkedin':
       return `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedText}`;
     case 'instagram':

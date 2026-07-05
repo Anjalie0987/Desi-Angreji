@@ -152,16 +152,8 @@ export function NavbarClient({ navigation, settings }: NavbarClientProps) {
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           
-          {/* Mobile Menu Button */}
-          <div className="flex items-center lg:hidden">
-            <Button suppressHydrationWarning variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(true)}>
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Open menu</span>
-            </Button>
-          </div>
-
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105 active:scale-95">
+          <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 shrink-0 relative z-50 mr-auto">
             {settings?.logo ? (
               <div className="relative h-10 w-32 sm:h-12 sm:w-40 lg:h-14 lg:w-48">
                 <Image 
@@ -220,12 +212,27 @@ export function NavbarClient({ navigation, settings }: NavbarClientProps) {
             })}
           </nav>
 
-          {/* Search Button */}
-          <div className="flex items-center">
-            <Button suppressHydrationWarning variant="ghost" size="icon" onClick={() => setIsSearchOpen(true)}>
-              <Search className="h-5 w-5" />
-              <span className="sr-only">Search</span>
-            </Button>
+          {/* Actions */}
+          <div className="flex items-center gap-1 sm:gap-2 relative z-[60] ml-auto pointer-events-auto">
+            <button
+              type="button"
+              suppressHydrationWarning
+              onClick={() => setIsSearchOpen(true)}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors focus:outline-none active:scale-95 cursor-pointer pointer-events-auto"
+              aria-label="Search"
+            >
+              <Search className="h-5 w-5 pointer-events-none" />
+            </button>
+            
+            <button
+              type="button"
+              suppressHydrationWarning
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors focus:outline-none active:scale-95 lg:hidden cursor-pointer pointer-events-auto"
+              aria-label="Open menu"
+            >
+              <Menu className="h-6 w-6 pointer-events-none" />
+            </button>
           </div>
         </div>
       </header>

@@ -22,7 +22,8 @@ type PageProps = {
 // Generate Dynamic SEO Metadata
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const params = await props.params;
-  const category = await getCategoryBySlug(params.slug);
+  const slug = decodeURIComponent(params.slug);
+  const category = await getCategoryBySlug(slug);
   const settings = await getSiteSettings();
 
   if (!category) {
@@ -70,7 +71,8 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 
 export default async function CategoryPage(props: PageProps) {
   const params = await props.params;
-  const category = await getCategoryBySlug(params.slug);
+  const slug = decodeURIComponent(params.slug);
+  const category = await getCategoryBySlug(slug);
   
   if (!category) {
     notFound();

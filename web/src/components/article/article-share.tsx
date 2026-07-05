@@ -114,9 +114,10 @@ export function ArticleShare({ url, title, socialData }: ArticleShareProps) {
             onClick={async () => {
               if (typeof navigator !== 'undefined' && navigator.share) {
                 try {
+                  const shareText = socialData?.xCaption || title;
                   await navigator.share({
                     title: title,
-                    text: socialData?.xCaption || title,
+                    text: shareText.replace(url, '').trim(),
                     url: url,
                   });
                 } catch {

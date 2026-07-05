@@ -26,7 +26,8 @@ type PageProps = {
 // Generate Dynamic SEO Metadata
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const params = await props.params;
-  const article = await getArticleBySlug(params.slug);
+  const slug = decodeURIComponent(params.slug);
+  const article = await getArticleBySlug(slug);
   const settings = await getSiteSettings();
 
   if (!article || article.status !== "published") {
@@ -78,7 +79,8 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 
 export default async function StoryPage(props: PageProps) {
   const params = await props.params;
-  const article = await getArticleBySlug(params.slug);
+  const slug = decodeURIComponent(params.slug);
+  const article = await getArticleBySlug(slug);
   const settings = await getSiteSettings();
   const middleAd = await getArticleMiddleAd();
   const sidebarAd = await getSidebarAd();
